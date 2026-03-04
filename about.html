@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Adolatha Uwimana</title>
-  <meta name="description" content="About Adolatha Uwimana — infrastructure security, threat intelligence, vulnerabilities, risk & compliance." />
+  <meta name="description" content="About Adolatha Uwimana — cybersecurity across systems, networks, threat intel, and risk & compliance." />
 
   <style>
     :root{
@@ -41,7 +41,6 @@
       padding: 26px 18px 60px;
     }
 
-    /* Top bar */
     header{
       display:flex;
       align-items:center;
@@ -92,7 +91,6 @@
       background: rgba(122,167,255,.10);
     }
 
-    /* ABOUT HERO (matches your new index style) */
     .hero{
       margin-top: 26px;
       border: 1px solid var(--line);
@@ -112,7 +110,6 @@
 
     .heroLeft{
       padding: 44px 48px 38px;
-      position:relative;
     }
 
     .kicker{
@@ -181,7 +178,6 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
       padding: 12px 16px;
       border-radius: 14px;
       border: 1px solid var(--line);
@@ -206,7 +202,6 @@
       color: rgba(234,240,255,.92);
     }
 
-    /* Right image area */
     .heroRight{
       position:relative;
       display:flex;
@@ -248,71 +243,6 @@
       line-height: 1.5;
     }
 
-    .heroImg{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      object-position: center;
-      display:block;
-    }
-
-    /* Content sections below */
-    .sectionGrid{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .card{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(15,26,46,.55);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      padding: 20px;
-    }
-
-    .card h2, .card h3{
-      margin: 0 0 10px;
-      letter-spacing: .2px;
-    }
-
-    .muted{color: rgba(234,240,255,.70)}
-    ul{padding-left: 18px; margin: 10px 0 0}
-    li{margin: 8px 0; color: rgba(234,240,255,.90)}
-
-    .focusList{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .focusItem{
-      display:flex;
-      gap:12px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255,255,255,.03);
-    }
-    .icon{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(122,167,255,.35), rgba(125,255,221,.18));
-      border: 1px solid rgba(255,255,255,.12);
-      display:grid;
-      place-items:center;
-      flex: 0 0 auto;
-      font-weight: 900;
-      color: var(--text);
-    }
-    .focusItem strong{display:block; margin-bottom:2px}
-    .focusItem span{color:var(--muted); font-size:.92rem; line-height:1.45}
-
     footer{
       margin-top: 30px;
       color: rgba(234,240,255,.70);
@@ -323,12 +253,12 @@
       flex-wrap:wrap;
       padding: 0 6px;
     }
+    .muted{color: rgba(234,240,255,.65)}
 
     @media (max-width: 900px){
       .heroInner{grid-template-columns: 1fr;}
       .heroLeft{padding: 34px 26px 24px;}
       .heroRight{padding: 14px 14px 0;}
-      .sectionGrid{grid-template-columns: 1fr;}
       header{border-radius: 18px}
     }
   </style>
@@ -348,18 +278,18 @@
       <nav>
         <a class="navlink" href="index.html">Home</a>
         <a class="navlink active" href="about.html">About</a>
+        <a class="navlink" href="skills.html">Skills</a>
         <a class="navlink" href="projects.html">Projects</a>
         <a class="navlink" href="events.html">Events</a>
       </nav>
     </header>
 
-    <!-- ABOUT HERO (content inspired by your old index) -->
     <section class="hero">
       <div class="heroInner">
         <div class="heroLeft">
           <div class="kicker">
             <span class="pill">ABOUT</span>
-            <span>My approach • focus areas • mindset</span>
+            <span>My approach • mindset • what I build</span>
           </div>
 
           <h1>
@@ -373,7 +303,7 @@
           </p>
 
           <p class="statement">
-            I don’t treat cybersecurity as “one role.” I treat it as an ecosystem:
+            I don’t treat cybersecurity as one “side.” I treat it as an ecosystem:
             prevention, detection, response, and governance—because strong security is what still holds when things go wrong.
           </p>
 
@@ -388,9 +318,7 @@
           <div class="imageShell">
             <div class="placeholder">
               Add your photo here
-              <small>
-                Later: replace this placeholder with an &lt;img&gt; tag (same as index).
-              </small>
+              <small>Same placeholder as Home — replace later with an &lt;img&gt; tag.</small>
             </div>
 
             <!-- When ready:
@@ -398,78 +326,6 @@
             -->
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Focus areas (matches your old index content) -->
-    <section class="sectionGrid">
-      <div class="card">
-        <h2>Focus areas</h2>
-        <ul class="focusList">
-          <li class="focusItem">
-            <div class="icon">N</div>
-            <div>
-              <strong>Network & infrastructure security</strong>
-              <span>Hardening, secure configurations, resilient foundations.</span>
-            </div>
-          </li>
-          <li class="focusItem">
-            <div class="icon">TI</div>
-            <div>
-              <strong>Threat intelligence</strong>
-              <span>Signals, patterns, and attacker behaviour analysis.</span>
-            </div>
-          </li>
-          <li class="focusItem">
-            <div class="icon">V</div>
-            <div>
-              <strong>Vulnerability awareness</strong>
-              <span>Hands-on testing mindset to stay current.</span>
-            </div>
-          </li>
-          <li class="focusItem">
-            <div class="icon">G</div>
-            <div>
-              <strong>Risk & compliance</strong>
-              <span>Security decisions grounded in impact and obligations.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>How I work</h2>
-        <p class="muted" style="margin-top:0; line-height:1.7;">
-          I like security that holds up in real environments. That means combining technical depth
-          with clear communication and practical decisions.
-        </p>
-        <ul>
-          <li><strong>Clarity:</strong> explain security in a way stakeholders can act on.</li>
-          <li><strong>Evidence:</strong> prioritize based on what we can observe, measure, and validate.</li>
-          <li><strong>Consistency:</strong> secure baselines and repeatable practices beat one-time fixes.</li>
-          <li><strong>Learning:</strong> events, research, and hands-on experiments keep me current.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Two cards like the old index “What you’ll find here” & “My security mindset” -->
-    <section class="sectionGrid">
-      <div class="card">
-        <h3>What you’ll find here</h3>
-        <p class="muted">
-          A curated view of my work: projects, write-ups, and reflections from events and hackathons.
-          This portfolio is designed to remain useful beyond my studies—something I can keep growing professionally.
-        </p>
-        <p><a href="projects.html" style="border-bottom:1px dashed rgba(255,255,255,.25); padding-bottom:2px; font-weight:800;">Start with Projects →</a></p>
-      </div>
-
-      <div class="card">
-        <h3>My security mindset</h3>
-        <p class="muted">
-          I’m interested in security that works in practice—not just theory. I care about clarity, evidence,
-          and learning from real-world threat behaviour.
-        </p>
-        <p><a href="events.html" style="border-bottom:1px dashed rgba(255,255,255,.25); padding-bottom:2px; font-weight:800;">See Events & learnings →</a></p>
       </div>
     </section>
 
