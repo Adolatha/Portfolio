@@ -12,51 +12,54 @@
       --bg2:#0f1b33;
       --text:#eaf0ff;
       --muted:#b7c3e6;
-      --line: rgba(255,255,255,.12);
+      --line:rgba(255,255,255,.12);
       --accent:#7aa7ff;
       --accent2:#7dffdd;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --radius: 16px;
 
-      /* Card vibe (mauve) */
-      --panel: rgba(210, 190, 200, .50);
-      --panelLine: rgba(255,255,255,.18);
-      --panelText: rgba(15,18,32,.88);
-      --panelMuted: rgba(15,18,32,.70);
+      --panel:rgba(15, 28, 52, .74);
+      --panelHover:rgba(18, 34, 62, .84);
+      --panelLine:rgba(122,167,255,.22);
+      --panelText:#f2f7ff;
+      --panelMuted:#b6c7e6;
+      --shadow:0 22px 55px rgba(0,0,0,.35);
+
+      --itemBg:rgba(255,255,255,.05);
+      --itemBorder:rgba(255,255,255,.10);
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
         radial-gradient(1200px 600px at 15% 10%, rgba(122,167,255,.20), transparent 60%),
-        radial-gradient(1000px 500px at 80% 25%, rgba(125,255,221,.12), transparent 60%),
+        radial-gradient(1000px 500px at 80% 25%, rgba(125,255,221,.10), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:1080px; margin:0 auto; padding:26px 18px 70px;}
 
-    /* Header */
     header{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(15,26,46,.55);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(15,26,46,.55);
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,.20);
     }
+
     .brand{display:flex; align-items:center; gap:10px; padding-left:6px;}
     .dot{
       width:12px; height:12px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 6px rgba(122,167,255,.12);
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 6px rgba(122,167,255,.12);
     }
     .brand strong{letter-spacing:.2px}
     .brand span{color:var(--muted); font-size:.92rem}
@@ -69,156 +72,193 @@
       color:var(--muted);
       font-weight:650;
       font-size:.95rem;
+      transition:.18s ease;
     }
-    .navlink:hover{border-color:var(--line); color:var(--text); background:rgba(255,255,255,.04);}
-    .navlink.active{color:var(--text); border-color:rgba(122,167,255,.35); background:rgba(122,167,255,.10);}
+    .navlink:hover{
+      border-color:var(--line);
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+    .navlink.active{
+      color:var(--text);
+      border-color:rgba(122,167,255,.35);
+      background:rgba(122,167,255,.10);
+      box-shadow:0 0 18px rgba(122,167,255,.08);
+    }
 
-    /* Page title */
     .centerTitle{
       text-align:center;
-      margin: 34px auto 22px;
+      margin:34px auto 24px;
     }
     .overline{
-      color: rgba(234,240,255,.72);
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-size: .85rem;
-      margin: 0 0 8px;
+      color:rgba(234,240,255,.72);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.85rem;
+      margin:0 0 8px;
     }
     .headline{
-      margin: 0;
-      font-size: clamp(1.9rem, 3.3vw, 2.7rem);
-      letter-spacing: -0.4px;
-      color: rgba(234,240,255,.92);
+      margin:0;
+      font-size:clamp(1.9rem, 3.3vw, 2.8rem);
+      letter-spacing:-0.5px;
+      color:rgba(234,240,255,.96);
+    }
+    .intro{
+      max-width:720px;
+      margin:12px auto 0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:1rem;
     }
 
-    /* Projects grid */
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 18px;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
       align-items:stretch;
     }
 
     .projCard{
-      border: 1px solid var(--panelLine);
-      background: var(--panel);
-      border-radius: 34px;
-      padding: 18px;
-      box-shadow: 0 22px 55px rgba(0,0,0,.35);
-      color: var(--panelText);
+      border:1px solid var(--panelLine);
+      background:var(--panel);
+      border-radius:30px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      color:var(--panelText);
       overflow:hidden;
       position:relative;
       display:flex;
       flex-direction:column;
-      min-height: 520px;
+      min-height:520px;
+      backdrop-filter:blur(10px);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
     }
-    .projCard:before{
+
+    .projCard::before{
       content:"";
       position:absolute;
-      inset:-2px;
+      inset:0;
       background:
-        radial-gradient(700px 350px at 20% 10%, rgba(255,255,255,.12), transparent 60%),
-        radial-gradient(700px 350px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+        radial-gradient(550px 240px at 18% 8%, rgba(122,167,255,.12), transparent 60%),
+        radial-gradient(460px 210px at 88% 18%, rgba(125,255,221,.08), transparent 55%);
       pointer-events:none;
     }
+
+    .projCard:hover{
+      transform:translateY(-4px);
+      background:var(--panelHover);
+      border-color:rgba(122,167,255,.30);
+      box-shadow:
+        0 22px 55px rgba(0,0,0,.42),
+        0 0 24px rgba(122,167,255,.10);
+    }
+
     .projCard > *{position:relative}
 
-    /* Image area */
     .thumb{
       width:100%;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.25);
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)),
+        rgba(8,14,28,.55);
       overflow:hidden;
-      aspect-ratio: 16 / 9;
+      aspect-ratio:16 / 9;
       display:grid;
       place-items:center;
-      color: rgba(234,240,255,.85);
-      font-weight: 800;
+      color:rgba(234,240,255,.90);
+      font-weight:800;
       letter-spacing:.2px;
+      text-align:center;
+      padding:22px;
     }
+
     .thumb small{
       display:block;
       margin-top:8px;
-      color: rgba(234,240,255,.72);
-      font-weight: 650;
+      color:rgba(190,205,235,.72);
+      font-weight:650;
       letter-spacing:0;
       line-height:1.35;
-      text-align:center;
-      padding: 0 10px;
+      padding:0 10px;
     }
-    /* When you add an image, use <img class="thumbImg" ...> */
+
     .thumbImg{
       width:100%;
       height:100%;
-      object-fit: cover;
+      object-fit:cover;
       display:block;
     }
 
-    /* Text */
     .projTitle{
-      margin: 14px 2px 8px;
-      font-size: 1.15rem;
+      margin:16px 2px 10px;
+      font-size:1.16rem;
       letter-spacing:.2px;
-      font-weight: 950;
-      color: rgba(15,18,32,.92);
-    }
-    .projDesc{
-      margin: 0 2px 14px;
-      color: var(--panelMuted);
-      line-height: 1.65;
-      font-weight: 650;
-      flex: 1 1 auto;
+      font-weight:900;
+      color:var(--panelText);
+      line-height:1.35;
     }
 
-    /* Tags */
     .tags{
       display:flex;
       flex-wrap:wrap;
-      gap: 10px;
-      margin: 2px 2px 14px;
-    }
-    .tag{
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.20);
-      background: rgba(255,255,255,.10);
-      color: rgba(15,18,32,.78);
-      font-weight: 850;
-      font-size: .85rem;
-      letter-spacing:.15px;
+      gap:10px;
+      margin:2px 2px 14px;
     }
 
-    /* Buttons */
+    .tag{
+      padding:8px 11px;
+      border-radius:999px;
+      border:1px solid rgba(122,167,255,.22);
+      background:rgba(122,167,255,.08);
+      color:#dff0ff;
+      font-weight:800;
+      font-size:.84rem;
+      letter-spacing:.12px;
+      box-shadow:0 0 10px rgba(122,167,255,.05);
+    }
+
+    .projDesc{
+      margin:0 2px 16px;
+      color:var(--panelMuted);
+      line-height:1.7;
+      font-weight:650;
+      flex:1 1 auto;
+    }
+
     .btnRow{
       display:flex;
-      gap: 12px;
-      margin-top: 10px;
+      gap:12px;
+      margin-top:10px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      color: rgba(15,18,32,.85);
-      font-weight: 950;
-      min-width: 130px;
-      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      padding:12px 15px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      color:var(--panelText);
+      font-weight:850;
+      min-width:130px;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
     }
+
     .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 14px 35px rgba(0,0,0,.18);
-      background: rgba(255,255,255,.14);
+      transform:translateY(-1px);
+      box-shadow:0 14px 35px rgba(0,0,0,.18);
+      background:rgba(255,255,255,.08);
+      border-color:rgba(122,167,255,.22);
     }
+
     .btn.primary{
-      background: rgba(15,18,32,.14);
-      border-color: rgba(15,18,32,.12);
-      color: rgba(15,18,32,.90);
+      background:linear-gradient(135deg, rgba(122,167,255,.16), rgba(125,255,221,.10));
+      border-color:rgba(122,167,255,.24);
+      color:#f3f8ff;
     }
+
     .btn.disabled{
       opacity:.55;
       cursor:not-allowed;
@@ -226,24 +266,25 @@
     }
 
     footer{
-      margin-top: 34px;
-      color: rgba(234,240,255,.70);
-      font-size: .92rem;
+      margin-top:34px;
+      color:rgba(234,240,255,.70);
+      font-size:.92rem;
       display:flex;
       justify-content:space-between;
-      gap: 12px;
+      gap:12px;
       flex-wrap:wrap;
-      padding: 0 6px;
+      padding:0 6px;
     }
-    .muted{color: rgba(234,240,255,.65)}
+    .muted{color:rgba(234,240,255,.65)}
 
-    @media (max-width: 1060px){
-      .grid{grid-template-columns: 1fr 1fr;}
+    @media (max-width:1060px){
+      .grid{grid-template-columns:1fr 1fr;}
     }
-    @media (max-width: 720px){
-      .grid{grid-template-columns: 1fr;}
+
+    @media (max-width:720px){
+      .grid{grid-template-columns:1fr;}
       header{border-radius:18px}
-      .projCard{min-height: auto;}
+      .projCard{min-height:auto; border-radius:24px;}
     }
   </style>
 </head>
@@ -269,18 +310,20 @@
     </header>
 
     <div class="centerTitle">
-      <p class="overline">My Recent Projects</p>
-      <h1 class="headline">Portfolio</h1>
+      <p class="overline">Selected Work</p>
+      <h1 class="headline">Projects</h1>
+      <p class="intro">
+        A selection of projects that reflect my interests in cybersecurity, secure development, mobile applications, and hands-on technical experimentation.
+      </p>
     </div>
 
     <section class="grid">
-      <!-- Project 1 -->
       <article class="projCard">
         <div class="thumb">
           Project image placeholder
           <small>Replace with your screenshot later (assets/projects/portfolio.png)</small>
 
-          <!-- When ready:
+          <!--
           <img class="thumbImg" src="assets/projects/portfolio.png" alt="Portfolio website screenshot" />
           -->
         </div>
@@ -288,14 +331,13 @@
         <h2 class="projTitle">Portfolio Website (HTML & CSS)</h2>
 
         <div class="tags">
-          <span class="tag">Static site</span>
+          <span class="tag">Static Site</span>
           <span class="tag">GitHub Pages</span>
           <span class="tag">HTML/CSS</span>
         </div>
 
         <p class="projDesc">
-          A personal cybersecurity portfolio designed to present my projects, skills, and social reflections.
-          Built as a lightweight static website for longterm use and easy maintenance.
+          A personal cybersecurity portfolio designed to present my projects, skills, and reflections in a clear and professional way. Built as a lightweight static website for easy maintenance and long-term use.
         </p>
 
         <div class="btnRow">
@@ -303,13 +345,12 @@
         </div>
       </article>
 
-      <!-- Project 2 -->
       <article class="projCard">
         <div class="thumb">
           Project image placeholder
           <small>Replace with your screenshot later (assets/projects/honeypot-api.png)</small>
 
-          <!-- When ready:
+          <!--
           <img class="thumbImg" src="assets/projects/honeypot-api.png" alt="Web honeypot API screenshot" />
           -->
         </div>
@@ -323,9 +364,7 @@
         </div>
 
         <p class="projDesc">
-          A web-based honeypot API designed to attract and record suspicious activity for analysis. There is a decoy database to collect possible 
-          database exploitation scripts for data collection and analysis using Kibana.
-          Focused on safe logging, metadata capture by Elasticsearch, and building an analysis friendly data pipeline.
+          A web-based honeypot API designed to attract and record suspicious activity for analysis. It includes a decoy database to capture possible exploitation attempts, with log and metadata pipelines prepared for Elasticsearch and Kibana-based analysis.
         </p>
 
         <div class="btnRow">
@@ -333,14 +372,13 @@
         </div>
       </article>
 
-      <!-- Project 3 -->
       <article class="projCard">
         <div class="thumb">
           Project image placeholder
           <small>Replace with your screenshot later (assets/projects/campus-connect.png)</small>
 
-          <!-- When ready:
-          <img class="thumbImg" src="assets/projects/campus-connect.png" alt="Campus Connect app screenshot" />
+          <!--
+          <img class="thumbImg" src="assets/projects/campus-connect.png" alt="CampusConnect app screenshot" />
           -->
         </div>
 
@@ -353,8 +391,7 @@
         </div>
 
         <p class="projDesc">
-          A mobile app project focused on campus events, with students able to join according to their preferences for social interaction.
-          Built with a security mindset, considering access control, data handling, and safe client-server interaction.
+          A mobile app focused on campus events, where students can join activities based on their preferences for social interaction. Built with a security mindset, considering access control, safe data handling, and secure client-server communication.
         </p>
 
         <div class="btnRow">
