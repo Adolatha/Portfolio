@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>The Transition to IPv6 | Blog</title>
+<meta name="description" content="Blog article about the transition to IPv6 and its security implications.">
+
+<style>
+
+/* ---------------- GLOBAL ---------------- */
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#faf8f4;
+color:#1f2937;
+font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+header{
+background:white;
+border-bottom:1px solid rgba(0,0,0,0.08);
+padding:16px 0;
+}
+
+.navwrap{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:700;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#7aa7ff;
+}
+
+.nav a{
+margin-left:18px;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+font-size:0.9rem;
+}
+
+.nav a:hover{
+color:#111827;
+}
+
+/* ---------------- ARTICLE LAYOUT ---------------- */
+
+.container{
+max-width:760px;
+margin:auto;
+padding:50px 20px 80px;
+}
+
+/* back link */
+
+.back{
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.9rem;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+}
+
+.back:hover{
+text-decoration:underline;
+}
+
+/* date */
+
+.date{
+margin-top:30px;
+font-size:0.85rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:#9ca3af;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+
+/* title */
+
+h1{
+font-size:2.6rem;
+margin:12px 0 26px;
+line-height:1.15;
+}
+
+/* hero image */
+
+.hero{
+width:100%;
+border-radius:10px;
+margin:10px 0 34px;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+display:block;
+}
+
+/* article text */
+
+.content{
+font-size:1.15rem;
+line-height:1.9;
+}
+
+.content p{
+margin-bottom:22px;
+}
+
+/* footer */
+
+footer{
+margin-top:60px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.85rem;
+color:#6b7280;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navwrap">
+
+<div class="brand">
+<div class="dot"></div>
+Adolatha Uwimana
+</div>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="blog.html">Blog</a>
+</div>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<a class="back" href="blog.html">← Back to Blog</a>
+
+<p class="date">25 November 2025</p>
+
+<h1>The Transition to IPv6</h1>
+
+<div class="hero">
+<img src="ipv6.jpg" alt="The Transition to IPv6 event">
+</div>
+
+<div class="content">
+
+<p>
+The session on The Transition to IPv6, presented by Nico Declerck, explored one of the most important infrastructure changes currently affecting global networking. As the available IPv4 address space has effectively been exhausted, organisations are increasingly expected to prepare for the adoption of IPv6. The event gave a clear overview of why this transition matters and how organisations can begin adapting their infrastructure to support it.
+</p>
+
+<p>
+The presentation began by looking back at the history of IP addressing and the way the internet has grown over time. IPv4 has supported the internet for decades, but it was never designed for the scale of connectivity we see today. As more devices, services, and systems came online, the limitations of IPv4 became much more visible. Techniques such as Network Address Translation helped extend its lifespan, but they also made network design more complex.
+</p>
+
+<p>
+IPv6 offers a much larger address space and removes many of the limitations that have accumulated around IPv4. What made the talk especially useful was that it did not present IPv6 as just a technical upgrade. Instead, it showed that the transition affects network planning, routing, firewall policies, and the overall way organisations think about infrastructure.
+</p>
+
+<p>
+One of the key ideas discussed was the use of dual stack deployment, where IPv4 and IPv6 run side by side during the migration process. This allows organisations to start introducing IPv6 gradually while still supporting existing systems that depend on IPv4. It is a practical path forward, but it also means that both environments need to be configured and secured properly.
+</p>
+
+<p>
+Security was an important part of the discussion throughout the event. As organisations adopt IPv6, their existing security controls must evolve as well. Firewalls, monitoring systems, and network rules all need to be reviewed to ensure they work effectively with IPv6 traffic. What I appreciated most about this session was how clearly it connected networking decisions with security-by-design thinking.
+</p>
+
+<p>
+Overall, the event made it clear that IPv6 is no longer something for the distant future. It is already becoming part of the present, and organisations that start preparing now will be in a much stronger position to manage the transition securely and effectively.
+</p>
+
+</div>
+
+<footer>
+
+© <span id="year"></span> Adolatha Uwimana • Belgium • Cybersecurity
+
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
