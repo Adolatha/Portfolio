@@ -1,427 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Threat Intelligence: From Threats to Tactics | Blog</title>
-  <meta name="description" content="Reflections from the Threat Intelligence: From Threats to Tactics event and insights from the Centre for Cybersecurity Belgium." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --page-bg: #fcfaf6;
-      --paper: #ffffff;
-      --paper-soft: #f5efe6;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: rgba(31, 41, 55, 0.10);
-      --accent: #b47b4d;
-      --accent-soft: #ead8c6;
-      --nav-bg: rgba(255,255,255,.72);
-      --shadow: 0 20px 50px rgba(31, 41, 55, 0.08);
-      --radius: 22px;
-    }
+<title>Threat Intelligence: From Threats to Tactics | Blog</title>
 
-    *{
-      box-sizing: border-box;
-    }
+<style>
 
-    html{
-      scroll-behavior: smooth;
-    }
+/* ---------------- GLOBAL ---------------- */
 
-    body{
-      margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(234, 216, 198, 0.35), transparent 30%),
-        radial-gradient(circle at top right, rgba(255, 244, 228, 0.60), transparent 26%),
-        linear-gradient(180deg, #fffdf9 0%, var(--page-bg) 100%);
-      font-family: Georgia, "Times New Roman", Times, serif;
-    }
+*{
+box-sizing:border-box;
+}
 
-    a{
-      color: inherit;
-      text-decoration: none;
-    }
+body{
+margin:0;
+background:#faf8f4;
+color:#1f2937;
+font-family: Georgia, "Times New Roman", serif;
+}
 
-    .wrap{
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 26px 18px 80px;
-    }
+/* ---------------- NAVBAR ---------------- */
 
-    header{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 12px 14px;
-      border: 1px solid rgba(31, 41, 55, 0.08);
-      border-radius: 999px;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.05);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      position: sticky;
-      top: 16px;
-      z-index: 10;
-    }
+header{
+background:white;
+border-bottom:1px solid rgba(0,0,0,0.08);
+padding:16px 0;
+}
 
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding-left: 6px;
-    }
+.navwrap{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
 
-    .dot{
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #d2a679, #f0d7b8);
-      box-shadow: 0 0 0 6px rgba(210, 166, 121, 0.14);
-      flex-shrink: 0;
-    }
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:700;
+}
 
-    .brand strong{
-      letter-spacing: .2px;
-      font-size: 1rem;
-      color: #1f2937;
-    }
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#7aa7ff;
+}
 
-    .brand span{
-      color: #7b8794;
-      font-size: .92rem;
-    }
+.nav a{
+margin-left:18px;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+font-size:0.9rem;
+}
 
-    nav{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
+.nav a:hover{
+color:#111827;
+}
 
-    .navlink{
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: #6b7280;
-      font-weight: 650;
-      font-size: .95rem;
-      transition: .18s ease;
-    }
+/* ---------------- ARTICLE LAYOUT ---------------- */
 
-    .navlink:hover{
-      border-color: rgba(31, 41, 55, 0.08);
-      color: #1f2937;
-      background: rgba(255,255,255,.82);
-    }
+.container{
+max-width:760px;
+margin:auto;
+padding:50px 20px 80px;
+}
 
-    .navlink.active{
-      color: #1f2937;
-      border-color: rgba(180, 123, 77, 0.24);
-      background: rgba(234, 216, 198, 0.55);
-    }
+/* back link */
 
-    .articleShell{
-      max-width: 860px;
-      margin: 34px auto 0;
-    }
+.back{
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.9rem;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+}
 
-    .article{
-      background: var(--paper);
-      border: 1px solid rgba(31, 41, 55, 0.07);
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-      padding: 28px 28px 34px;
-      overflow: hidden;
-    }
+.back:hover{
+text-decoration:underline;
+}
 
-    .backLink{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 24px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(31, 41, 55, 0.08);
-      background: #fffaf3;
-      color: #4b5563;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      font-weight: 700;
-      font-size: .94rem;
-      transition: .18s ease;
-    }
+/* date */
 
-    .backLink:hover{
-      background: #fff;
-      color: #1f2937;
-      transform: translateY(-1px);
-    }
+.date{
+margin-top:30px;
+font-size:0.85rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:#9ca3af;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
 
-    .eyebrow{
-      display: inline-block;
-      margin: 0 0 12px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--paper-soft);
-      color: #8a5a34;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
+/* title */
 
-    .date{
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: .95rem;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      font-weight: 700;
-      letter-spacing: .03em;
-    }
+h1{
+font-size:2.6rem;
+margin:12px 0 26px;
+line-height:1.15;
+}
 
-    h1{
-      margin: 0 0 18px;
-      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
-      line-height: 1.08;
-      letter-spacing: -.03em;
-      color: #18212f;
-      font-weight: 700;
-    }
+/* hero image */
 
-    .intro{
-      margin: 0 0 28px;
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: #4b5563;
-      max-width: 720px;
-    }
+.hero{
+width:100%;
+border-radius:10px;
+margin:10px 0 34px;
+overflow:hidden;
+}
 
-    .thumb{
-      width: 100%;
-      border-radius: 26px;
-      overflow: hidden;
-      border: 1px solid rgba(31, 41, 55, 0.08);
-      background: #f8f3ec;
-      aspect-ratio: 16 / 8.6;
-      margin-bottom: 30px;
-    }
+.hero img{
+width:100%;
+display:block;
+}
 
-    .thumb img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+/* article text */
 
-    .content{
-      max-width: 720px;
-      margin: 0 auto;
-    }
+.content{
+font-size:1.15rem;
+line-height:1.9;
+}
 
-    .content p{
-      margin: 0 0 22px;
-      font-size: 1.10rem;
-      line-height: 1.95;
-      color: #2d3748;
-    }
+.content p{
+margin-bottom:22px;
+}
 
-    .content p:first-child::first-letter{
-      float: left;
-      font-size: 3.6rem;
-      line-height: .95;
-      padding-right: 8px;
-      padding-top: 6px;
-      color: var(--accent);
-      font-weight: 700;
-    }
+/* footer */
 
-    .content em{
-      font-style: italic;
-    }
+footer{
+margin-top:60px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.85rem;
+color:#6b7280;
+text-align:center;
+}
 
-    .content strong{
-      font-weight: 700;
-      color: #18212f;
-    }
-
-    .sectionBreak{
-      width: 74px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent-soft), var(--accent));
-      margin: 30px auto 34px;
-      opacity: .75;
-    }
-
-    .articleFooter{
-      margin-top: 34px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(31, 41, 55, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    footer.siteFooter{
-      margin-top: 34px;
-      color: #8a94a3;
-      font-size: .92rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 0 6px;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
-
-    .muted{
-      color: #8a94a3;
-    }
-
-    @media (max-width: 900px){
-      header{
-        border-radius: 20px;
-      }
-
-      .article{
-        border-radius: 26px;
-        padding: 22px 18px 26px;
-      }
-
-      h1{
-        font-size: clamp(2rem, 8vw, 2.6rem);
-      }
-
-      .intro,
-      .content p{
-        font-size: 1.03rem;
-      }
-
-      .content p:first-child::first-letter{
-        font-size: 3rem;
-      }
-    }
-
-    @media (max-width: 640px){
-      header{
-        position: static;
-      }
-
-      .brand span{
-        display: none;
-      }
-
-      nav{
-        gap: 6px;
-      }
-
-      .navlink{
-        padding: 8px 11px;
-        font-size: .9rem;
-      }
-
-      .thumb{
-        aspect-ratio: 16 / 10;
-      }
-
-      .articleFooter,
-      footer.siteFooter{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="dot"></div>
-        <div>
-          <strong>Adolatha Uwimana</strong><br />
-          <span>Cybersecurity Portfolio</span>
-        </div>
-      </div>
 
-      <nav>
-        <a class="navlink" href="index.html">Home</a>
-        <a class="navlink" href="about.html">About</a>
-        <a class="navlink" href="skills.html">Skills</a>
-        <a class="navlink" href="projects.html">Projects</a>
-        <a class="navlink active" href="blog.html">Blog</a>
-      </nav>
-    </header>
+<header>
 
-    <div class="articleShell">
-      <article class="article">
-        <a class="backLink" href="blog.html">← Back to Blog</a>
+<div class="navwrap">
 
-        <p class="eyebrow">Event Reflection</p>
-        <p class="date">7 October 2025</p>
+<div class="brand">
+<div class="dot"></div>
+Adolatha Uwimana
+</div>
 
-        <h1>Threat Intelligence: From Threats to Tactics</h1>
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="blog.html">Blog</a>
+</div>
 
-        <p class="intro">
-          Reflections on how cyber threat intelligence becomes practical action, and how Belgium’s national cybersecurity ecosystem turns analysis into early warning and coordinated defence.
-        </p>
+</div>
 
-        <div class="thumb">
-          <img src="CTI.jpg" alt="Threat Intelligence Tech Meet event" />
-        </div>
+</header>
 
-        <div class="content">
-          <p>
-            The event <em>“Threat Intelligence: From Threats to Tactics”</em> provided valuable insight into how the Centre for Cybersecurity Belgium (CCB) applies cyber threat intelligence in practice to protect organisations and citizens across Belgium.
-          </p>
+<div class="container">
 
-          <p>
-            During the session, Sandro Manzo, Lead of the Fusion Centre at CCB/CyTRIS, and Niels Desloover, Cyber Threat Intelligence Analyst at CCB/CyTRIS, explained how threat intelligence is operationalised within Belgium’s national cybersecurity ecosystem. Rather than treating intelligence as simply a collection of threat reports, their work focuses on translating threat data into concrete defensive actions that help organisations anticipate and mitigate attacks.
-          </p>
+<a class="back" href="blog.html">← Back to Blog</a>
 
-          <div class="sectionBreak"></div>
+<p class="date">7 October 2025</p>
 
-          <p>
-            One of the most interesting aspects discussed during the talk was how CCB actively identifies emerging threats and communicates them to potential victims. When analysts detect suspicious activity or ongoing malicious campaigns targeting Belgian organisations, the objective is not only to investigate the threat but also to warn the organisations that may be affected. This early warning approach allows organisations to strengthen their defences before attackers are able to successfully compromise systems.
-          </p>
+<h1>Threat Intelligence: From Threats to Tactics</h1>
 
-          <p>
-            The speakers also introduced several initiatives that support this approach driven by intelligence. One example is the Spear Warning system, which helps identify and track spear-phishing campaigns targeting organisations. By analysing patterns, indicators, and attacker behaviour, this system enables analysts to detect targeted phishing attempts and notify potential victims before damage occurs.
-          </p>
+<div class="hero">
+<img src="CTI.jpg" alt="Threat Intelligence Tech Meet">
+</div>
 
-          <p>
-            Another initiative discussed was the Red Button project, which provides a mechanism for reporting suspicious emails and online threats. Reports submitted through this channel contribute to a larger pool of threat intelligence that analysts can use to identify patterns, investigate campaigns, and improve overall situational awareness.
-          </p>
+<div class="content">
 
-          <div class="sectionBreak"></div>
+<p>
+The event <em>“Threat Intelligence: From Threats to Tactics”</em> provided valuable insight into how the Centre for Cybersecurity Belgium (CCB) applies cyber threat intelligence in practice to protect organisations and citizens across Belgium.
+</p>
 
-          <p>
-            Reflecting on the event, it became clear that cyber threat intelligence is most effective when it moves beyond observation and becomes part of active defence. The work presented by the CCB demonstrates how intelligence analysis, early detection, and coordinated communication can significantly strengthen national cyber resilience. The session highlighted the importance of understanding attacker behaviour while also ensuring that intelligence findings are translated into timely warnings and defensive actions that help organisations stay ahead of evolving threats.
-          </p>
-        </div>
+<p>
+During the session, Sandro Manzo, Lead of the Fusion Centre at CCB/CyTRIS, and Niels Desloover, Cyber Threat Intelligence Analyst at CCB/CyTRIS, explained how threat intelligence is operationalised within Belgium’s national cybersecurity ecosystem. Rather than treating intelligence as simply a collection of threat reports, their work focuses on translating threat data into concrete defensive actions that help organisations anticipate and mitigate attacks.
+</p>
 
-        <div class="articleFooter">
-          <span>Written as part of my learning journey in cybersecurity</span>
-          <span>Blog • Event Reflection</span>
-        </div>
-      </article>
-    </div>
+<p>
+One of the most interesting aspects discussed during the talk was how CCB actively identifies emerging threats and communicates them to potential victims. When analysts detect suspicious activity or ongoing malicious campaigns targeting Belgian organisations, the objective is not only to investigate the threat but also to warn the organisations that may be affected.
+</p>
 
-    <footer class="siteFooter">
-      <div class="muted">© <span id="year"></span> Adolatha Uwimana</div>
-      <div class="muted">Belgium • Cybersecurity</div>
-    </footer>
-  </div>
+<p>
+This early warning approach allows organisations to strengthen their defences before attackers are able to successfully compromise systems.
+</p>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<p>
+The speakers also introduced several initiatives that support this approach driven by intelligence. One example is the Spear Warning system, which helps identify and track spear-phishing campaigns targeting organisations.
+</p>
+
+<p>
+Another initiative discussed was the Red Button project, which provides a mechanism for reporting suspicious emails and online threats. Reports submitted through this channel contribute to a larger pool of threat intelligence that analysts can use to identify patterns, investigate campaigns, and improve situational awareness.
+</p>
+
+<p>
+Reflecting on the event, it became clear that cyber threat intelligence is most effective when it moves beyond observation and becomes part of active defence. Intelligence analysis, early detection, and coordinated communication can significantly strengthen national cyber resilience.
+</p>
+
+</div>
+
+<footer>
+
+© <span id="year"></span> Adolatha Uwimana • Belgium • Cybersecurity
+
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
