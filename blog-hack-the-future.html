@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Hack The Future 2025 – Aquatopia | Blog</title>
+<meta name="description" content="Blog article about Hack The Future 2025 and the Aquatopia hackathon challenge.">
+
+<style>
+
+/* ---------------- GLOBAL ---------------- */
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#faf8f4;
+color:#1f2937;
+font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+header{
+background:white;
+border-bottom:1px solid rgba(0,0,0,0.08);
+padding:16px 0;
+}
+
+.navwrap{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:700;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#7aa7ff;
+}
+
+.nav a{
+margin-left:18px;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+font-size:0.9rem;
+}
+
+.nav a:hover{
+color:#111827;
+}
+
+/* ---------------- ARTICLE LAYOUT ---------------- */
+
+.container{
+max-width:760px;
+margin:auto;
+padding:50px 20px 80px;
+}
+
+/* back link */
+
+.back{
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.9rem;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+}
+
+.back:hover{
+text-decoration:underline;
+}
+
+/* date */
+
+.date{
+margin-top:30px;
+font-size:0.85rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:#9ca3af;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+
+/* title */
+
+h1{
+font-size:2.6rem;
+margin:12px 0 26px;
+line-height:1.15;
+}
+
+/* hero image */
+
+.hero{
+width:100%;
+border-radius:10px;
+margin:10px 0 34px;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+display:block;
+}
+
+/* article text */
+
+.content{
+font-size:1.15rem;
+line-height:1.9;
+}
+
+.content p{
+margin-bottom:22px;
+}
+
+/* footer */
+
+footer{
+margin-top:60px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.85rem;
+color:#6b7280;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navwrap">
+
+<div class="brand">
+<div class="dot"></div>
+Adolatha Uwimana
+</div>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="blog.html">Blog</a>
+</div>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<a class="back" href="blog.html">← Back to Blog</a>
+
+<p class="date">12 November 2025</p>
+
+<h1>Hack The Future 2025 – Exploring Data and AI at Aquatopia</h1>
+
+<div class="hero">
+<img src="hackathon.jpg" alt="Hack The Future Aquatopia Hackathon">
+</div>
+
+<div class="content">
+
+<p>
+Hack The Future 2025 took place in Antwerp at the Flanders Meeting & Convention Center and brought together students, developers, and technology companies for a full day of hands-on challenges and collaboration. The event followed the theme Aquatopia, with each challenge creatively designed around underwater exploration and discovery.
+</p>
+
+<p>
+The day started with a welcoming meet-and-greet breakfast before everyone joined their assigned teams and challenge rooms. My partner and I were placed in Challenge 109: “Discoveries of the Great DBArrier Reef”, organised by MONIN together with EXITAS, a company specialised in database management.
+</p>
+
+<p>
+Our challenge centered around exploring a system and discovering the database behind it. As we worked through the environment, we eventually identified that the system was powered by an Oracle database. From there, the task became much more interesting because it was not only about discovering the technology, but also about understanding how to interact with it while keeping the system stable and functional.
+</p>
+
+<p>
+One of the technical parts of the challenge involved working with PDF documents and preparing them for use in a Retrieval-Augmented Generation (RAG) application. That meant sanitising PDF content, extracting text, splitting it into smaller chunks, and preparing those chunks for vectorisation and indexing. The goal was to support a chatbot-like system that could answer questions about the content of documents in natural language.
+</p>
+
+<p>
+This part of the challenge showed how modern databases are evolving beyond traditional storage. Using Oracle Database 23ai and its AI Vector Search capabilities, the exercise connected databases, document processing, and AI in a very practical way. It helped me better understand how semantic search works and how structured data systems can support more intelligent applications.
+</p>
+
+<p>
+What I enjoyed most about the hackathon was the combination of collaboration, experimentation, and time pressure. It pushed us to think quickly, test ideas, and learn while doing. More than anything, it reminded me that hackathons are not just about finishing a challenge perfectly, but about discovering new technologies, building confidence, and growing through hands-on problem solving.
+</p>
+
+</div>
+
+<footer>
+
+© <span id="year"></span> Adolatha Uwimana • Belgium • Cybersecurity
+
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
