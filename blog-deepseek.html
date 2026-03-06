@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>DeepSeek Uncovered | Blog</title>
+<meta name="description" content="Blog article about DeepSeek, open-source reasoning models, and AI in software development.">
+
+<style>
+
+/* ---------------- GLOBAL ---------------- */
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#faf8f4;
+color:#1f2937;
+font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+header{
+background:white;
+border-bottom:1px solid rgba(0,0,0,0.08);
+padding:16px 0;
+}
+
+.navwrap{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:700;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#7aa7ff;
+}
+
+.nav a{
+margin-left:18px;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+font-size:0.9rem;
+}
+
+.nav a:hover{
+color:#111827;
+}
+
+/* ---------------- ARTICLE LAYOUT ---------------- */
+
+.container{
+max-width:760px;
+margin:auto;
+padding:50px 20px 80px;
+}
+
+/* back link */
+
+.back{
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.9rem;
+text-decoration:none;
+color:#6b7280;
+font-weight:600;
+}
+
+.back:hover{
+text-decoration:underline;
+}
+
+/* date */
+
+.date{
+margin-top:30px;
+font-size:0.85rem;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:#9ca3af;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+
+/* title */
+
+h1{
+font-size:2.6rem;
+margin:12px 0 26px;
+line-height:1.15;
+}
+
+/* hero image */
+
+.hero{
+width:100%;
+border-radius:10px;
+margin:10px 0 34px;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+display:block;
+}
+
+/* article text */
+
+.content{
+font-size:1.15rem;
+line-height:1.9;
+}
+
+.content p{
+margin-bottom:22px;
+}
+
+/* footer */
+
+footer{
+margin-top:60px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-size:0.85rem;
+color:#6b7280;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navwrap">
+
+<div class="brand">
+<div class="dot"></div>
+Adolatha Uwimana
+</div>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="blog.html">Blog</a>
+</div>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<a class="back" href="blog.html">← Back to Blog</a>
+
+<p class="date">9 December 2025</p>
+
+<h1>DeepSeek Uncovered: China’s Open-Source Answer to OpenAI</h1>
+
+<div class="hero">
+<img src="Deepseek.jpg" alt="DeepSeek event presentation">
+</div>
+
+<div class="content">
+
+<p>
+The session DeepSeek Uncovered, led by Dimitri Casier, explored the growing influence of large language models and how open-source AI is beginning to reshape the way developers learn, experiment, and build software.
+</p>
+
+<p>
+The talk focused on DeepSeek as an open-source alternative to more closed AI platforms such as those developed by OpenAI. What made the discussion especially interesting to me was how these models are becoming more than just impressive tools. They are increasingly part of real development workflows, helping developers write code, explore solutions, and work through technical challenges in new ways.
+</p>
+
+<p>
+One of the concepts that stood out during the event was model distillation. This is the idea that a large and powerful model can transfer its knowledge to smaller and more efficient models. By doing this, advanced AI capabilities become more accessible because developers do not always need massive computing resources to benefit from these systems.
+</p>
+
+<p>
+The speaker also discussed reinforcement learning and how it contributes to improving the quality of model responses. Through training and feedback, models gradually refine the way they respond and develop stronger reasoning abilities. What I found particularly interesting was the idea that reasoning itself is now becoming available in open-source models, not only in proprietary commercial systems.
+</p>
+
+<p>
+From a software development perspective, this openness is extremely valuable. Developers can interact directly with the models, experiment with their behaviour, and better understand how they can be integrated into real applications. Instead of relying solely on AI as a service, open models create opportunities for learning, experimentation, and deeper technical understanding.
+</p>
+
+<p>
+Overall, the event provided a clearer view of how rapidly AI tools are evolving and how open-source reasoning models could influence the future of development. It made the topic feel much more practical and relevant in a time where AI is becoming part of everyday engineering workflows.
+</p>
+
+</div>
+
+<footer>
+
+© <span id="year"></span> Adolatha Uwimana • Belgium • Cybersecurity
+
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
