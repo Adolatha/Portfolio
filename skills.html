@@ -8,58 +8,69 @@
 
   <style>
     :root{
-      --bg: #0b1220;
+      --bg:#0b1220;
       --bg2:#0f1b33;
       --text:#eaf0ff;
       --muted:#b7c3e6;
-      --line: rgba(255,255,255,.12);
+      --line:rgba(255,255,255,.12);
       --accent:#7aa7ff;
       --accent2:#7dffdd;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --radius: 16px;
 
-      /* “soft mauve” like your screenshots */
-      --panel: rgba(210, 190, 200, .50);
-      --panelLine: rgba(255,255,255,.18);
-      --tick: rgba(255,255,255,.65);
+      --panel:rgba(15, 28, 52, .72);
+      --panelHover:rgba(18, 34, 62, .82);
+      --panelLine:rgba(122,167,255,.22);
+      --panelGlow:0 18px 50px rgba(0,0,0,.35);
+
+      --itemBg:rgba(255,255,255,.05);
+      --itemBorder:rgba(255,255,255,.10);
+
+      --titleText:#f3f7ff;
+      --bodyText:#dbe6ff;
+      --softText:#aebedf;
+
+      --radius:16px;
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
         radial-gradient(1200px 600px at 15% 10%, rgba(122,167,255,.20), transparent 60%),
-        radial-gradient(1000px 500px at 80% 25%, rgba(125,255,221,.12), transparent 60%),
+        radial-gradient(1000px 500px at 80% 25%, rgba(125,255,221,.10), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:1080px; margin:0 auto; padding:26px 18px 70px;}
 
-    /* Header */
     header{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(15,26,46,.55);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(15,26,46,.55);
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,.20);
     }
+
     .brand{display:flex; align-items:center; gap:10px; padding-left:6px;}
     .dot{
       width:12px; height:12px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 6px rgba(122,167,255,.12);
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 6px rgba(122,167,255,.12);
     }
+
     .brand strong{letter-spacing:.2px}
     .brand span{color:var(--muted); font-size:.92rem}
+
     nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+
     .navlink{
       padding:10px 14px;
       border-radius:999px;
@@ -67,196 +78,263 @@
       color:var(--muted);
       font-weight:650;
       font-size:.95rem;
+      transition:.18s ease;
     }
-    .navlink:hover{border-color:var(--line); color:var(--text); background:rgba(255,255,255,.04);}
-    .navlink.active{color:var(--text); border-color:rgba(122,167,255,.35); background:rgba(122,167,255,.10);}
 
-    /* Section headers */
-    .section{
-      margin-top: 34px;
+    .navlink:hover{
+      border-color:var(--line);
+      color:var(--text);
+      background:rgba(255,255,255,.04);
     }
+
+    .navlink.active{
+      color:var(--text);
+      border-color:rgba(122,167,255,.35);
+      background:rgba(122,167,255,.10);
+      box-shadow:0 0 18px rgba(122,167,255,.08);
+    }
+
+    .section{
+      margin-top:34px;
+    }
+
     .centerTitle{
       text-align:center;
-      margin: 18px auto 22px;
-    }
-    .overline{
-      color: rgba(234,240,255,.72);
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-size: .85rem;
-      margin: 0 0 8px;
-    }
-    .headline{
-      margin: 0;
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-      letter-spacing: -0.4px;
-      color: rgba(234,240,255,.92);
+      margin:18px auto 24px;
     }
 
-    /* Grids */
+    .overline{
+      color:rgba(234,240,255,.72);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.85rem;
+      margin:0 0 8px;
+    }
+
+    .headline{
+      margin:0;
+      font-size:clamp(1.8rem, 3.2vw, 2.8rem);
+      letter-spacing:-0.5px;
+      color:rgba(234,240,255,.96);
+    }
+
     .grid2{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items:stretch;
-    }
-    .grid3{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 18px;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
       align-items:stretch;
     }
 
-    /* “Mauve” cards like screenshots */
+    .grid3{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
     .panel{
-      border: 1px solid var(--panelLine);
-      background: var(--panel);
-      border-radius: 34px;
-      padding: 22px;
-      box-shadow: 0 22px 55px rgba(0,0,0,.35);
-      color: rgba(15,18,32,.92);
+      border:1px solid var(--panelLine);
+      background:var(--panel);
+      border-radius:34px;
+      padding:22px;
+      box-shadow:var(--panelGlow);
+      color:var(--bodyText);
       position:relative;
       overflow:hidden;
-      min-height: 250px;
+      min-height:250px;
+      backdrop-filter:blur(10px);
     }
-    .panel:before{
+
+    .panel::before{
       content:"";
       position:absolute;
-      inset:-2px;
+      inset:0;
       background:
-        radial-gradient(700px 350px at 20% 10%, rgba(255,255,255,.12), transparent 60%),
-        radial-gradient(700px 350px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+        radial-gradient(600px 260px at 18% 8%, rgba(122,167,255,.12), transparent 60%),
+        radial-gradient(500px 220px at 90% 20%, rgba(125,255,221,.08), transparent 55%);
       pointer-events:none;
     }
+
     .panel > *{position:relative}
 
     .panelTitle{
       text-align:center;
-      margin: 6px 0 18px;
-      font-size: 1.15rem;
+      margin:6px 0 18px;
+      font-size:1.18rem;
       letter-spacing:.2px;
-      color: rgba(15,18,32,.78);
-      font-weight: 800;
+      color:var(--titleText);
+      font-weight:800;
     }
 
-    /* Skill rows */
     .skillGrid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px 24px;
-      padding: 6px 8px 0;
+      grid-template-columns:1fr 1fr;
+      gap:16px 24px;
+      padding:6px 8px 0;
     }
 
     .skillItem{
       display:flex;
-      gap: 12px;
+      gap:12px;
       align-items:flex-start;
-      padding: 10px 10px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.18);
-    }
-    .badgeIcon{
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.22);
-      display:grid;
-      place-items:center;
-      color: rgba(15,18,32,.75);
-      font-weight: 900;
-      flex: 0 0 auto;
-      margin-top: 2px;
-    }
-    .skillName{
-      font-weight: 900;
-      letter-spacing:.2px;
-      margin: 0 0 4px;
-      color: rgba(15,18,32,.88);
-    }
-    .skillLevel{
-      margin: 0;
-      color: rgba(15,18,32,.70);
-      font-weight: 700;
-      font-size: .92rem;
+      padding:14px 14px;
+      border-radius:18px;
+      background:var(--itemBg);
+      border:1px solid var(--itemBorder);
+      transition:.18s ease;
     }
 
-    /* “Learning & Achievement” cards with header strip */
-    .stackCard{
-      border-radius: 34px;
-      overflow:hidden;
-      box-shadow: 0 22px 55px rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.16);
+    .skillItem:hover{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(122,167,255,.22);
+      transform:translateY(-1px);
     }
-    .stackHead{
-      background: rgba(210, 190, 200, .72);
-      padding: 18px 18px;
-      text-align:center;
-      font-weight: 900;
-      color: rgba(15,18,32,.80);
+
+    .badgeIcon{
+      width:32px;
+      height:32px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      display:grid;
+      place-items:center;
+      color:#bfe7ff;
+      font-weight:900;
+      flex:0 0 auto;
+      margin-top:2px;
+      box-shadow:0 0 12px rgba(122,167,255,.10);
+    }
+
+    .skillName{
+      font-weight:850;
       letter-spacing:.2px;
+      margin:0 0 5px;
+      color:var(--titleText);
+      font-size:1.02rem;
     }
+
+    .skillLevel{
+      margin:0;
+      color:var(--softText);
+      font-weight:700;
+      font-size:.93rem;
+    }
+
+    .stackCard{
+      border-radius:34px;
+      overflow:hidden;
+      box-shadow:var(--panelGlow);
+      border:1px solid var(--panelLine);
+      background:var(--panel);
+      backdrop-filter:blur(10px);
+      position:relative;
+    }
+
+    .stackCard::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(500px 220px at 15% 5%, rgba(122,167,255,.10), transparent 60%),
+        radial-gradient(420px 200px at 88% 10%, rgba(125,255,221,.06), transparent 55%);
+      pointer-events:none;
+    }
+
+    .stackHead,
     .stackBody{
-      background: rgba(210, 190, 200, .50);
-      padding: 18px 18px 20px;
-      color: rgba(15,18,32,.85);
-      min-height: 240px;
+      position:relative;
+      z-index:1;
+    }
+
+    .stackHead{
+      background:rgba(255,255,255,.04);
+      padding:18px 18px;
+      text-align:center;
+      font-weight:850;
+      color:var(--titleText);
+      letter-spacing:.2px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .stackBody{
+      padding:18px 18px 20px;
+      color:var(--bodyText);
+      min-height:240px;
     }
 
     .checkList{
       list-style:none;
-      padding: 0;
-      margin: 0;
+      padding:0;
+      margin:0;
       display:flex;
       flex-direction:column;
-      gap: 14px;
+      gap:14px;
     }
+
     .checkList li{
       display:flex;
-      gap: 12px;
+      gap:12px;
       align-items:flex-start;
-      line-height: 1.55;
-      font-weight: 750;
-      color: rgba(15,18,32,.82);
+      line-height:1.58;
+      font-weight:700;
+      color:var(--bodyText);
     }
+
     .tick{
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
+      width:22px;
+      height:22px;
+      border-radius:7px;
       display:grid;
       place-items:center;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.20);
-      color: rgba(15,18,32,.70);
-      font-weight: 900;
-      flex: 0 0 auto;
-      margin-top: 2px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      color:#c8fff0;
+      font-weight:900;
+      flex:0 0 auto;
+      margin-top:2px;
+      box-shadow:0 0 12px rgba(125,255,221,.08);
     }
+
     .sub{
       display:block;
-      font-weight: 650;
-      color: rgba(15,18,32,.65);
-      margin-top: 2px;
+      font-weight:600;
+      color:var(--softText);
+      margin-top:2px;
     }
 
     footer{
-      margin-top: 34px;
-      color: rgba(234,240,255,.70);
-      font-size: .92rem;
+      margin-top:34px;
+      color:rgba(234,240,255,.70);
+      font-size:.92rem;
       display:flex;
       justify-content:space-between;
-      gap: 12px;
+      gap:12px;
       flex-wrap:wrap;
-      padding: 0 6px;
+      padding:0 6px;
     }
-    .muted{color: rgba(234,240,255,.65)}
 
-    @media (max-width: 980px){
+    .muted{color:rgba(234,240,255,.65)}
+
+    @media (max-width:980px){
       .grid3{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
       .skillGrid{grid-template-columns:1fr}
       header{border-radius:18px}
+    }
+
+    @media (max-width:640px){
+      .panel,
+      .stackCard{
+        border-radius:24px;
+      }
+
+      .skillItem{
+        padding:12px;
+      }
+
+      .headline{
+        font-size:clamp(1.7rem, 8vw, 2.3rem);
+      }
     }
   </style>
 </head>
@@ -281,17 +359,15 @@
       </nav>
     </header>
 
-    <!-- SECTION 1 -->
     <section class="section">
       <div class="centerTitle">
-        <p class="overline">What Skill I Have</p>
+        <p class="overline">What I Know</p>
         <h2 class="headline">My Experience</h2>
       </div>
 
       <div class="grid2">
-        <!-- Languages -->
         <div class="panel">
-          <div class="panelTitle">Language</div>
+          <div class="panelTitle">Languages</div>
 
           <div class="skillGrid">
             <div class="skillItem">
@@ -322,7 +398,7 @@
               <div class="badgeIcon">✦</div>
               <div>
                 <p class="skillName">Python</p>
-                <p class="skillLevel">Basic → growing</p>
+                <p class="skillLevel">Basic → Growing</p>
               </div>
             </div>
 
@@ -341,8 +417,8 @@
                 <p class="skillLevel">Experienced</p>
               </div>
             </div>
-            
-             <div class="skillItem">
+
+            <div class="skillItem">
               <div class="badgeIcon">✦</div>
               <div>
                 <p class="skillName">Kotlin</p>
@@ -350,20 +426,18 @@
               </div>
             </div>
 
-             <div class="skillItem">
+            <div class="skillItem">
               <div class="badgeIcon">✦</div>
               <div>
-                <p class="skillName">Bash scripting</p>
+                <p class="skillName">Bash Scripting</p>
                 <p class="skillLevel">Experienced</p>
               </div>
             </div>
-          
           </div>
         </div>
 
-        <!-- Tools -->
         <div class="panel">
-          <div class="panelTitle">Technology and Tool</div>
+          <div class="panelTitle">Technologies & Tools</div>
 
           <div class="skillGrid">
             <div class="skillItem">
@@ -406,7 +480,7 @@
               </div>
             </div>
 
-             <div class="skillItem">
+            <div class="skillItem">
               <div class="badgeIcon">✦</div>
               <div>
                 <p class="skillName">Metasploit</p>
@@ -414,7 +488,7 @@
               </div>
             </div>
 
-             <div class="skillItem">
+            <div class="skillItem">
               <div class="badgeIcon">✦</div>
               <div>
                 <p class="skillName">Ansible</p>
@@ -434,60 +508,56 @@
       </div>
     </section>
 
-    <!-- SECTION 2 -->
     <section class="section">
       <div class="centerTitle">
-        <p class="overline">What I Know</p>
+        <p class="overline">What I Keep Building</p>
         <h2 class="headline">Learning and Achievement</h2>
       </div>
 
       <div class="grid3">
-        <!-- Learning Path -->
         <div class="stackCard">
           <div class="stackHead">Learning Path</div>
           <div class="stackBody">
             <ul class="checkList">
               <li><span class="tick">✓</span> Computer Networking</li>
-              <li><span class="tick">✓</span> Network infrastructure security</li>
-              <li><span class="tick">✓</span> Web security</li>
-              <li><span class="tick">✓</span> Threat intelligence</li>
-              <li><span class="tick">✓</span> Risk management in Information security</li>
-              <li><span class="tick">✓</span> Honeypots, logging, and analysis workflow</li>
-              <li><span class="tick">✓</span> Mobile security</li>
-              <li><span class="tick">✓</span> Computer and network forensics</li>
+              <li><span class="tick">✓</span> Network Infrastructure Security</li>
+              <li><span class="tick">✓</span> Web Security</li>
+              <li><span class="tick">✓</span> Threat Intelligence</li>
+              <li><span class="tick">✓</span> Risk Management in Information Security</li>
+              <li><span class="tick">✓</span> Honeypots, Logging, and Analysis Workflow</li>
+              <li><span class="tick">✓</span> Mobile Security</li>
+              <li><span class="tick">✓</span> Computer and Network Forensics</li>
               <li><span class="tick">✓</span> Ethical Hacking and Offensive Security</li>
             </ul>
           </div>
         </div>
 
-        <!-- Achievements -->
         <div class="stackCard">
-          <div class="stackHead">Achievement</div>
+          <div class="stackHead">Achievements</div>
           <div class="stackBody">
             <ul class="checkList">
               <li>
                 <span class="tick">✓</span>
-                Cisco Networking learning (Network infrastructure security)
-                <span class="sub">Add exact course title/cert later</span>
+                Cisco networking learning in network infrastructure security
+                <span class="sub">Add exact course title or certificate later</span>
               </li>
               <li>
                 <span class="tick">✓</span>
-                SAP- Hack your Device
+                SAP – Hack Your Device
                 <span class="sub">Course certificate in RUN-EU</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <!-- Platforms / Research -->
         <div class="stackCard">
-          <div class="stackHead">Research Platform</div>
+          <div class="stackHead">Platforms & Practice</div>
           <div class="stackBody">
             <ul class="checkList">
               <li><span class="tick">✓</span> Kali Linux / Debian / Ubuntu</li>
               <li><span class="tick">✓</span> Windows & Windows Server</li>
-              <li><span class="tick">✓</span> TryHackMe / CTF-style learning</li>
-              <li><span class="tick">✓</span> Hack the box</li>
+              <li><span class="tick">✓</span> TryHackMe / CTF-style Learning</li>
+              <li><span class="tick">✓</span> Hack The Box</li>
             </ul>
           </div>
         </div>
