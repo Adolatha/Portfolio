@@ -273,7 +273,7 @@
         radial-gradient(650px 320px at 30% 35%, rgba(125,255,221,.10), transparent 60%);
     }
 
-    .imageShell{
+    /* .imageShell{
       width:min(440px, 92%);
       aspect-ratio:1 / 1.15;
       border-radius:999px 999px 0 0;
@@ -282,6 +282,18 @@
       overflow:hidden;
       position:relative;
       box-shadow:0 22px 55px rgba(0,0,0,.35);
+    } */
+        .imageShell{
+          width:100%;
+          height:100%;
+          overflow:hidden;
+          background:rgba(255,255,255,.06);
+          display:flex;
+          align-items:flex-start;
+          justify-content:flex-start;
+          padding:0;
+          margin:0;
+          border-radius:16px;
     }
 
     .placeholder{
@@ -307,7 +319,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:center;
+      object-position:top;
       display:block;
     }
 
