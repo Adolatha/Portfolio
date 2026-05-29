@@ -2,973 +2,340 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Adolatha Uwimana | Cybersecurity Portfolio</title>
 
-  <meta
-          name="description"
-          content="Cybersecurity portfolio of Adolatha Uwimana featuring projects, security research, and development work."
-  />
-
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" href="assets/favicon.png"/>
 
   <style>
-
     :root{
-      --bg:#f7f8fc;
-      --bgSoft:#eef2f7;
-
-      --surface:#ffffff;
-
-      --text:#101828;
-      --muted:#667085;
-
-      --line:#e4e7ec;
-
-      --accent:#5b7cff;
-      --accent2:#7c5cff;
-
-      --radius:32px;
-
-      --shadow:
-              0 10px 30px rgba(16,24,40,.06);
+      --bg:#0b1220;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.04);
+      --text:#eaf0ff;
+      --muted:#a9b4d0;
+      --accent:#7aa7ff;
+      --accent2:#7dffdd;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family:
-              Inter,
-              ui-sans-serif,
-              system-ui,
-              sans-serif;
-
-      background:var(--bg);
+      font-family:system-ui,Segoe UI,Arial;
+      background: radial-gradient(circle at top left, rgba(122,167,255,.15), transparent 40%),
+      radial-gradient(circle at bottom right, rgba(125,255,221,.10), transparent 40%),
+      var(--bg);
       color:var(--text);
-
-      overflow-x:hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    a{color:inherit;text-decoration:none}
 
-    img{
-      display:block;
-      max-width:100%;
-    }
+    .container{width:min(1100px,92%);margin:auto}
 
-    .container{
-      width:min(1180px,92%);
-      margin:auto;
-    }
-
-    /* NAVBAR */
-
+    /* NAV */
     header{
-      position:fixed;
-      top:20px;
-      left:50%;
-      transform:translateX(-50%);
-
-      width:min(1180px,92%);
-
+      position:sticky;
+      top:14px;
       z-index:1000;
-
+      backdrop-filter:blur(12px);
+      background:rgba(10,15,30,.6);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:12px 18px;
       display:flex;
       justify-content:space-between;
       align-items:center;
+    }
 
-      padding:16px 24px;
-
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    nav a{
+      padding:8px 14px;
       border-radius:999px;
-
-      background:rgba(255,255,255,.75);
-
-      backdrop-filter:blur(16px);
-
-      border:1px solid rgba(255,255,255,.8);
-
-      box-shadow:
-              0 10px 30px rgba(0,0,0,.05);
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-
-    .dot{
-      width:14px;
-      height:14px;
-      border-radius:999px;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      var(--accent),
-                      var(--accent2)
-              );
-    }
-
-    .brand strong{
-      font-size:1rem;
-    }
-
-    .brand span{
-      font-size:.9rem;
       color:var(--muted);
+      border:1px solid transparent;
     }
-
-    nav{
-      display:flex;
-      gap:10px;
-    }
-
-    .navlink{
-      padding:10px 16px;
-      border-radius:999px;
-
-      font-weight:600;
-      color:var(--muted);
-
-      transition:.2s ease;
-    }
-
-    .navlink:hover{
-      background:#f3f4f6;
+    nav a:hover{
       color:var(--text);
+      border-color:var(--border);
+      background:rgba(255,255,255,.04);
     }
 
     /* HERO */
-
     .hero{
-      min-height:100vh;
-
-      display:flex;
-      align-items:center;
-
-      padding:
-              140px
-              0
-              100px;
-
-      background:
-              radial-gradient(
-                      circle at top left,
-                      rgba(91,124,255,.14),
-                      transparent 35%
-              ),
-
-              radial-gradient(
-                      circle at bottom right,
-                      rgba(124,92,255,.12),
-                      transparent 30%
-              ),
-
-              #f8fbff;
-    }
-
-    .heroInner{
-      width:min(1180px,92%);
-      margin:auto;
-
+      margin-top:30px;
       display:grid;
-
-      grid-template-columns:
-        1.1fr
-        .9fr;
-
-      gap:70px;
+      grid-template-columns:1.2fr .8fr;
+      gap:30px;
       align-items:center;
     }
 
-    .hello{
-      font-size:.9rem;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-
-      color:var(--muted);
-
-      margin-bottom:20px;
+    .heroCard{
+      padding:40px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:var(--card);
+      box-shadow:var(--shadow);
     }
 
-    .name{
-      font-size:
-              clamp(
-                      4rem,
-                      8vw,
-                      7rem
-              );
-
-      line-height:.92;
-      letter-spacing:-4px;
-
-      font-weight:900;
+    h1{
+      font-size:3rem;
+      line-height:1.1;
     }
 
     .role{
-      margin-top:18px;
-
-      font-size:1.3rem;
-
-      color:#475467;
+      color:var(--muted);
+      margin:10px 0 20px;
     }
 
-    .heroText{
-      margin-top:30px;
-
-      max-width:620px;
-
-      line-height:1.9;
-
-      color:#475467;
-    }
-
-    .ctaRow{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-
-      margin-top:36px;
-    }
-
+    .btnRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      padding:15px 24px;
-
-      border-radius:18px;
-
-      font-weight:700;
-
-      transition:.25s ease;
+      padding:12px 18px;
+      border-radius:14px;
+      border:1px solid var(--border);
     }
-
     .btn.primary{
-      background:
-              linear-gradient(
-                      135deg,
-                      var(--accent),
-                      var(--accent2)
-              );
-
-      color:white;
-
-      box-shadow:
-              0 12px 30px rgba(91,124,255,.25);
-    }
-
-    .btn.primary:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn.ghost{
-      background:white;
-      border:1px solid var(--line);
-    }
-
-    .btn.ghost:hover{
-      background:#f5f7fa;
-    }
-
-    .imageShell{
-      overflow:hidden;
-
-      border-radius:40px;
-
-      background:white;
-
-      box-shadow:
-              0 25px 60px rgba(0,0,0,.08);
-
-      aspect-ratio:1 / 1.15;
-    }
-
-    .heroImg{
-      width:100%;
-      height:100%;
-
-      object-fit:cover;
-      object-position:top;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#0b1220;
+      font-weight:700;
     }
 
     /* SECTIONS */
+    .section{margin-top:70px}
 
-    .section{
-      padding:120px 0;
+    .title{
+      margin-bottom:20px;
     }
-
-    .sectionAlt{
-      background:#f3f6fc;
+    .title h2{
+      font-size:2rem;
     }
-
-    .centerTitle{
-      margin-bottom:60px;
-    }
-
-    .overline{
-      text-transform:uppercase;
-      letter-spacing:.2em;
-
+    .title p{
       color:var(--muted);
-
-      font-size:.85rem;
+      letter-spacing:.2em;
+      font-size:.8rem;
+      text-transform:uppercase;
     }
 
-    .headline{
-      margin-top:12px;
-
-      font-size:
-              clamp(
-                      2.5rem,
-                      5vw,
-                      4rem
-              );
-
-      letter-spacing:-2px;
-    }
-
-    /* ABOUT */
-
-    .aboutGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-    }
+    /* GRID */
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
 
     .card{
-      background:white;
-
-      border-radius:32px;
-
-      padding:40px;
-
-      box-shadow:var(--shadow);
-    }
-
-    .aboutLead{
-      font-size:2rem;
-      line-height:1.15;
-
-      margin-bottom:24px;
-    }
-
-    .aboutText,
-    .statement{
-      line-height:1.9;
-      color:#475467;
-    }
-
-    .statement{
-      margin-top:20px;
-    }
-
-    .focusList{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
-
-    .focusItem{
-      padding:22px;
-
-      border-radius:24px;
-
-      background:#f8fbff;
-    }
-
-    .focusItem strong{
-      display:block;
-      margin-bottom:8px;
-    }
-
-    .focusItem span{
-      line-height:1.7;
-      color:#667085;
+      padding:20px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:var(--card2);
     }
 
     /* SKILLS */
-
-    .grid2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
+    .skill{
+      padding:12px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      margin-bottom:10px;
+      background:rgba(255,255,255,.03);
     }
-
-    .panel{
-      background:white;
-
-      border-radius:32px;
-
-      padding:34px;
-
-      box-shadow:var(--shadow);
-    }
-
-    .panelTitle{
-      font-size:1.3rem;
-      font-weight:800;
-
-      margin-bottom:26px;
-    }
-
-    .skillGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .skillItem{
-      padding:18px;
-
-      border-radius:20px;
-
-      background:#f8fbff;
-    }
-
-    .skillName{
-      font-weight:800;
-    }
-
-    .skillLevel{
-      color:#667085;
-      margin-top:4px;
-    }
+    .skill b{display:block}
 
     /* PROJECTS */
-
-    .projectsGrid{
-      display:grid;
-      grid-template-columns:
-        1.3fr
-        .7fr;
-
-      gap:28px;
-    }
-
-    .projCard{
-      background:white;
-
-      border-radius:34px;
-
-      overflow:hidden;
-
-      box-shadow:var(--shadow);
-
-      transition:.25s ease;
-    }
-
-    .projCard:hover{
-      transform:translateY(-6px);
-    }
-
-    .thumb{
-      aspect-ratio:16 / 9;
-      overflow:hidden;
-    }
-
-    .thumbImg{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .projContent{
-      padding:30px;
-    }
-
-    .projTitle{
-      font-size:1.4rem;
-      font-weight:800;
-    }
-
-    .tags{
+    .project{
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:var(--card2);
       display:flex;
+      flex-direction:column;
       gap:10px;
-      flex-wrap:wrap;
-
-      margin:
-              18px
-              0;
     }
 
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
     .tag{
-      padding:8px 14px;
-
+      font-size:.75rem;
+      padding:6px 10px;
       border-radius:999px;
-
-      background:#eef2ff;
-
-      color:#4f46e5;
-
-      font-size:.84rem;
-      font-weight:700;
+      border:1px solid var(--border);
     }
 
-    .projDesc{
-      line-height:1.8;
-      color:#667085;
-    }
-
-    .btnRow{
-      margin-top:24px;
-    }
-
-    /* CONTACT */
-
-    .contactCard{
-      background:white;
-
-      border-radius:40px;
-
-      padding:70px 40px;
-
-      text-align:center;
-
-      box-shadow:var(--shadow);
-    }
-
+    /* FOOTER */
     footer{
-      padding:50px 0;
-
+      margin:60px 0 20px;
       text-align:center;
-
-      color:#98a2b3;
+      color:var(--muted);
     }
-
-    /* RESPONSIVE */
-
-    @media (max-width:980px){
-
-      .heroInner,
-      .aboutGrid,
-      .grid2,
-      .projectsGrid{
-        grid-template-columns:1fr;
-      }
-
-      .name{
-        font-size:4rem;
-      }
-    }
-
-    @media (max-width:720px){
-
-      header{
-        width:94%;
-      }
-
-      nav{
-        display:none;
-      }
-
-      .hero{
-        padding-top:180px;
-      }
-
-      .headline{
-        font-size:2.4rem;
-      }
-
-      .name{
-        font-size:3rem;
-        letter-spacing:-2px;
-      }
-
-      .card,
-      .panel,
-      .contactCard{
-        padding:26px;
-      }
-    }
-
   </style>
 </head>
 
 <body>
 
-<header>
+<div class="container">
 
-  <div class="brand">
-    <div class="dot"></div>
+  <!-- HEADER -->
+  <header>
+    <strong>Adolatha Uwimana</strong>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
-    <div>
-      <strong>Adolatha Uwimana</strong><br />
-      <span>Cybersecurity Portfolio</span>
-    </div>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
 
-  <nav>
-    <a class="navlink" href="#about">About</a>
-    <a class="navlink" href="#skills">Skills</a>
-    <a class="navlink" href="#projects">Projects</a>
-    <a class="navlink" href="blog.html">Blog</a>
-  </nav>
+    <div class="heroCard">
+      <h1>Cybersecurity<br/>Portfolio</h1>
+      <p class="role">Junior Cybersecurity Professional</p>
 
-</header>
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="heroInner">
-
-    <div>
-
-      <p class="hello">Cybersecurity • Development • Research</p>
-
-      <h1 class="name">
-        Adolatha<br />
-        Uwimana
-      </h1>
-
-      <p class="role">
-        Junior Cybersecurity Professional
+      <p>
+        Security research, development, networking, and offensive security projects
+        built through hands-on learning and experimentation.
       </p>
 
-      <p class="heroText">
-        Projects, security research, write-ups, and development work
-        exploring infrastructure, offensive security, threat analysis,
-        and secure software engineering.
-      </p>
-
-      <div class="ctaRow">
-        <a class="btn primary"
-           href="mailto:yvonneadore@gmail.com">
-          Contact Me
-        </a>
-
-        <a class="btn ghost"
-           href="assets/Adolatha_Uwimana_CV.pdf"
-           download>
-          Download Resume
-        </a>
+      <div class="btnRow">
+        <a class="btn primary" href="mailto:yvonneadore@gmail.com">Contact</a>
+        <a class="btn" href="assets/Adolatha_Uwimana_CV.pdf" download>Resume</a>
       </div>
-
     </div>
 
-    <div class="imageShell">
-
-      <img
-              class="heroImg"
-              src="assets/profile.png"
-              alt="Adolatha Uwimana portrait"
-      />
-
+    <div class="heroCard">
+      <img src="assets/profile.png" style="width:100%;border-radius:16px"/>
     </div>
 
-  </div>
+  </section>
 
-</section>
-
-<!-- ABOUT -->
-
-<section id="about" class="section">
-
-  <div class="container">
-
-    <div class="centerTitle">
-      <p class="overline">About Me</p>
-      <h2 class="headline">Security Beyond One Role</h2>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="title">
+      <p>About</p>
+      <h2>Security mindset across systems</h2>
     </div>
 
-    <div class="aboutGrid">
-
-      <div class="card">
-
-        <h3 class="aboutLead">
-          Cybersecurity across systems, infrastructure, applications,
-          and governance.
-        </h3>
-
-        <p class="aboutText">
-          I explore how systems fail, how attackers operate,
-          and how organizations can build resilient security practices.
-        </p>
-
-        <p class="statement">
-          My interests span offensive security, infrastructure,
-          threat intelligence, risk management,
-          secure development, and digital forensics.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="focusList">
-
-          <div class="focusItem">
-            <strong>Infrastructure Security</strong>
-
-            <span>
-                Building secure foundations for systems and networks.
-              </span>
-          </div>
-
-          <div class="focusItem">
-            <strong>Threat Intelligence</strong>
-
-            <span>
-                Understanding attacker behavior and attack patterns.
-              </span>
-          </div>
-
-          <div class="focusItem">
-            <strong>Pentesting</strong>
-
-            <span>
-                Identifying weaknesses in real-world systems.
-              </span>
-          </div>
-
-          <div class="focusItem">
-            <strong>Risk & Compliance</strong>
-
-            <span>
-                Governance, assessment, and organizational security.
-              </span>
-          </div>
-
-        </div>
-
-      </div>
-
+    <div class="card">
+      I explore how systems fail, how attackers operate, and how organizations build resilience.
+      My focus spans infrastructure security, threat intelligence, pentesting, risk management,
+      forensics, and secure development.
     </div>
+  </section>
 
-  </div>
+  <!-- SKILLS -->
+  <section id="skills" class="section">
 
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills" class="section sectionAlt">
-
-  <div class="container">
-
-    <div class="centerTitle">
-      <p class="overline">Experience</p>
-      <h2 class="headline">Skills & Technologies</h2>
+    <div class="title">
+      <p>Experience</p>
+      <h2>Skills & Technologies</h2>
     </div>
 
     <div class="grid2">
 
-      <div class="panel">
+      <div class="card">
+        <h3>Languages</h3>
 
-        <h3 class="panelTitle">Languages</h3>
-
-        <div class="skillGrid">
-
-          <div class="skillItem">
-            <p class="skillName">Java</p>
-            <p class="skillLevel">Intermediate</p>
-          </div>
-
-          <div class="skillItem">
-            <p class="skillName">Python</p>
-            <p class="skillLevel">Intermediate</p>
-          </div>
-
-          <div class="skillItem">
-            <p class="skillName">JavaScript</p>
-            <p class="skillLevel">Experienced</p>
-          </div>
-
-          <div class="skillItem">
-            <p class="skillName">SQL</p>
-            <p class="skillLevel">Experienced</p>
-          </div>
-
-        </div>
-
+        <div class="skill"><b>Java</b>Intermediate</div>
+        <div class="skill"><b>JavaScript</b>Experienced</div>
+        <div class="skill"><b>C#</b>Intermediate</div>
+        <div class="skill"><b>Python</b>Intermediate</div>
+        <div class="skill"><b>HTML / CSS</b>Experienced</div>
+        <div class="skill"><b>SQL</b>Experienced</div>
+        <div class="skill"><b>Kotlin</b>Intermediate</div>
+        <div class="skill"><b>Bash Scripting</b>Experienced</div>
       </div>
 
-      <div class="panel">
+      <div class="card">
+        <h3>Security Tools</h3>
 
-        <h3 class="panelTitle">Security & Tools</h3>
-
-        <div class="skillGrid">
-
-          <div class="skillItem">
-            <p class="skillName">Wireshark</p>
-            <p class="skillLevel">Experienced</p>
-          </div>
-
-          <div class="skillItem">
-            <p class="skillName">Burp Suite</p>
-            <p class="skillLevel">Experienced</p>
-          </div>
-
-          <div class="skillItem">
-            <p class="skillName">Linux</p>
-            <p class="skillLevel">Experienced</p>
-          </div>
-
-          <div class="skillItem">
-            <p class="skillName">Docker</p>
-            <p class="skillLevel">Experienced</p>
-          </div>
-
-        </div>
+        <div class="skill"><b>Nmap</b>Experienced</div>
+        <div class="skill"><b>Wireshark</b>Experienced</div>
+        <div class="skill"><b>Burp Suite</b>Experienced</div>
+        <div class="skill"><b>Linux</b>Experienced</div>
+        <div class="skill"><b>Docker</b>Experienced</div>
+        <div class="skill"><b>Metasploit</b>Intermediate</div>
+        <div class="skill"><b>Ansible</b>Intermediate</div>
+        <div class="skill"><b>Git / GitHub</b>Intermediate</div>
 
       </div>
 
     </div>
 
-  </div>
+    <div class="grid3" style="margin-top:20px">
 
-</section>
+      <div class="card">
+        <h3>Learning Path</h3>
+        <p>Networking, Web Security, Threat Intel, Malware Analysis, Forensics, Ethical Hacking, etc.</p>
+      </div>
 
-<!-- PROJECTS -->
+      <div class="card">
+        <h3>Platforms</h3>
+        <p>Kali Linux, Windows Server, TryHackMe, Hack The Box</p>
+      </div>
 
-<section id="projects" class="section">
-
-  <div class="container">
-
-    <div class="centerTitle">
-      <p class="overline">Projects</p>
-      <h2 class="headline">Recent Work</h2>
-    </div>
-
-    <div class="projectsGrid">
-
-      <article class="projCard">
-
-        <div class="thumb">
-          <img
-                  class="thumbImg"
-                  src="assets/API-1.png"
-                  alt="Web Honeypot API"
-          />
-        </div>
-
-        <div class="projContent">
-
-          <h3 class="projTitle">
-            Web Honeypot API
-          </h3>
-
-          <div class="tags">
-            <span class="tag">Honeypot</span>
-            <span class="tag">API</span>
-            <span class="tag">Logging</span>
-          </div>
-
-          <p class="projDesc">
-            A web-based honeypot API designed to capture suspicious
-            activity, log attack behavior, and prepare data pipelines
-            for Elasticsearch and Kibana analysis.
-          </p>
-
-          <div class="btnRow">
-            <a class="btn ghost"
-               href="https://github.com/Adolatha/API-HONEYPOT.git">
-              GitHub
-            </a>
-          </div>
-
-        </div>
-
-      </article>
-
-      <article class="projCard">
-
-        <div class="thumb">
-          <img
-                  class="thumbImg"
-                  src="assets/oop.png"
-                  alt="Object-oriented application"
-          />
-        </div>
-
-        <div class="projContent">
-
-          <h3 class="projTitle">
-            Object-Oriented Client-Server Application
-          </h3>
-
-          <div class="tags">
-            <span class="tag">Java</span>
-            <span class="tag">SOLID</span>
-            <span class="tag">Sockets</span>
-          </div>
-
-          <p class="projDesc">
-            A layered object-oriented application built using
-            secure development principles, unit testing,
-            persistence systems, and client-server communication.
-          </p>
-
-          <div class="btnRow">
-            <a class="btn ghost"
-               href="https://github.com/Adolatha/oop-client-server-application.git">
-              GitHub
-            </a>
-          </div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="section sectionAlt">
-
-  <div class="container">
-
-    <div class="contactCard">
-
-      <p class="overline">Contact</p>
-
-      <h2 class="headline">
-        Let’s Work Together
-      </h2>
-
-      <div class="ctaRow"
-           style="justify-content:center; margin-top:40px;">
-
-        <a class="btn primary"
-           href="mailto:yvonneadore@gmail.com">
-          Email Me
-        </a>
-
-        <a class="btn ghost"
-           href="assets/Adolatha_Uwimana_CV.pdf"
-           download>
-          Resume
-        </a>
-
+      <div class="card">
+        <h3>Achievements</h3>
+        <p>Cisco Networking training, RUN-EU Hack Your Device (SAP)</p>
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
 
-<footer>
-  © 2026 Adolatha Uwimana • Belgium
-</footer>
+    <div class="title">
+      <p>Work</p>
+      <h2>Projects</h2>
+    </div>
+
+    <div class="grid3">
+
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Static</span>
+        </div>
+        <p>Personal cybersecurity portfolio website.</p>
+      </div>
+
+      <div class="project">
+        <h3>Web Honeypot API</h3>
+        <div class="tags">
+          <span class="tag">Honeypot</span>
+          <span class="tag">API</span>
+          <span class="tag">Logging</span>
+        </div>
+        <p>System for capturing suspicious activity and attack patterns.</p>
+      </div>
+
+      <div class="project">
+        <h3>CampusConnect</h3>
+        <div class="tags">
+          <span class="tag">Android</span>
+          <span class="tag">Kotlin</span>
+        </div>
+        <p>Secure mobile event-based social platform.</p>
+      </div>
+
+      <div class="project">
+        <h3>OOP Client-Server App</h3>
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">Sockets</span>
+        </div>
+        <p>Secure layered system with client-server architecture.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Adolatha Uwimana • Belgium
+  </footer>
+
+</div>
 
 </body>
 </html>
