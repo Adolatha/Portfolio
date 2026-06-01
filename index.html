@@ -627,12 +627,58 @@
       box-shadow:var(--shadow);
     }
 
-    footer{
-      padding:50px 0;
+    /*footer{*/
+    /*  padding:50px 0;*/
 
+    /*  text-align:center;*/
+
+    /*  color:#98a2b3;*/
+    /*}*/
+
+    .action-footer{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      width:100%;
+      margin-top:100px;
+    }
+
+    .footer-block{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:120px;
+      text-decoration:none;
+      color:white;
+      font-size:1rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-weight:600;
+      transition:all .35s ease;
+    }
+
+    .footer-block:hover{
+      transform:translateY(-4px);
+      filter:brightness(1.08);
+    }
+
+    .footer-block.blog{
+      background:#43b36f;
+    }
+
+    .footer-block.email{
+      background:#2f9ae0;
+    }
+
+    .footer-block.linkedin{
+      background:#0d74af;
+    }
+
+    .footer-bottom{
       text-align:center;
-
-      color:#98a2b3;
+      padding:35px 20px;
+      background:#f4f4f4;
+      color:#8b8b8b;
+      font-size:0.95rem;
     }
 
     /* RESPONSIVE */
@@ -1200,8 +1246,20 @@
 
 </section>
 
-<footer>
-  © 2026 Adolatha Uwimana • Belgium
+<footer class="action-footer">
+
+  <a href="blog.html" class="footer-block blog">
+    <span>Blog</span>
+  </a>
+
+  <a href="mailto:yvonneadore@gmail.com" class="footer-block email">
+    <span>Email Me!</span>
+  </a>
+
+  <a href="https://www.linkedin.com/in/adolatha-uwimana-35041014a/" target="_blank" class="footer-block linkedin">
+    <span>LinkedIn</span>
+  </a>
+
 </footer>
 
 </body>
