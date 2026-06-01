@@ -9,47 +9,70 @@
 
   <style>
     :root{
-      --bg:#0b1220;
-      --bg2:#0f1b33;
-      --text:#eaf0ff;
-      --muted:#b7c3e6;
-      --line: rgba(255,255,255,.12);
-      --accent:#7aa7ff;
-      --accent2:#7dffdd;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --radius: 16px;
 
-      --panel: rgba(18, 28, 48, 0.75);
-      --panelLine: rgba(122,167,255,.35);
-      --panelText: rgba(234,240,255,.92);
-      --panelMuted: rgba(200,210,240,.75);
+      --bg:#f5f7fb;
+      --bg2:#eef2f7;
+
+      --text:#101828;
+      --muted:#667085;
+
+      --line:#e4e7ec;
+
+      --accent:#5b7cff;
+      --accent2:#7c5cff;
+
+      --shadow:
+              0 10px 30px rgba(16,24,40,.06);
+
+      --panel:#ffffff;
+
+      --panelLine:#eef2f7;
+
+      --panelText:#101828;
+
+      --panelMuted:#667085;
     }
 
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
       background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(122,167,255,.20), transparent 60%),
-        radial-gradient(1000px 500px at 80% 25%, rgba(125,255,221,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+              radial-gradient(
+                      circle at top left,
+                      rgba(91,124,255,.08),
+                      transparent 40%
+              ),
+              #f5f7fb;
     }
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:1080px; margin:0 auto; padding:26px 18px 70px;}
 
     header{
+      position:fixed;
+      top:20px;
+      left:50%;
+      transform:translateX(-50%);
+
+      width:min(1180px,92%);
+
+      z-index:1000;
+
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:14px;
-      padding:12px 14px;
-      border:1px solid var(--line);
+      align-items:center;
+
+      padding:16px 24px;
+
       border-radius:999px;
-      background:rgba(15,26,46,.55);
-      backdrop-filter:blur(10px);
-      box-shadow:0 10px 30px rgba(0,0,0,.20);
+
+      background:rgba(255,255,255,.75);
+
+      backdrop-filter:blur(16px);
+
+      border:1px solid rgba(255,255,255,.8);
+
+      box-shadow:
+              0 10px 30px rgba(0,0,0,.05);
     }
 
     .brand{display:flex; align-items:center; gap:10px; padding-left:6px;}
@@ -94,16 +117,9 @@
     }
     .headline{
       margin:0;
-      font-size:clamp(1.9rem, 3.3vw, 2.7rem);
+      font-size:clamp(1.6rem, 3vw, 2.5rem);
       letter-spacing:-0.4px;
-      color:rgba(234,240,255,.92);
-    }
-    .intro{
-      max-width:760px;
-      margin:12px auto 0;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:1rem;
+      color:var(--panelText);
     }
 
     .grid{
@@ -114,13 +130,12 @@
     }
 
     .postCard{
-      border:1px solid var(--panelLine);
-      background:var(--panel);
+      background:white;
       border-radius:24px;
+      border:1px solid #eef2f7;
       padding:18px;
       box-shadow:
-        0 0 0 rgba(0,0,0,0),
-        0 10px 30px rgba(0,0,0,.4);
+              0 10px 30px rgba(16,24,40,.06);
       color:var(--panelText);
       position:relative;
       overflow:hidden;
@@ -130,13 +145,20 @@
       transition:all .25s ease;
     }
     
+    /*.postCard:hover{*/
+    /*  transform:translateY(-6px);*/
+    /*  box-shadow:*/
+    /*    0 0 15px rgba(122,167,255,.45),*/
+    /*    0 0 35px rgba(125,255,221,.25),*/
+    /*    0 25px 60px rgba(0,0,0,.6);*/
+    /*  border-color:rgba(122,167,255,.55);*/
+    /*}*/
     .postCard:hover{
+
       transform:translateY(-6px);
+
       box-shadow:
-        0 0 15px rgba(122,167,255,.45),
-        0 0 35px rgba(125,255,221,.25),
-        0 25px 60px rgba(0,0,0,.6);
-      border-color:rgba(122,167,255,.55);
+              0 20px 40px rgba(16,24,40,.08);
     }
 
     .postCard::after{
@@ -156,7 +178,6 @@
       overflow:hidden;
       aspect-ratio:16/9;
       background:#0b1220;
-      border:1px solid rgba(122,167,255,.2);
     }
     
     .thumb img{
@@ -179,7 +200,7 @@
       margin:0 2px 10px;
       font-size:1.18rem;
       font-weight:950;
-      color:rgba(15,18,32,.92);
+      color:#101828;
       line-height:1.3;
     }
 
@@ -236,16 +257,13 @@
 
       <nav>
         <a class="navlink" href="index.html">Home</a>
-        <a class="navlink" href="about.html">About</a>
-        <a class="navlink" href="skills.html">Skills</a>
-        <a class="navlink" href="projects.html">Projects</a>
         <a class="navlink active" href="blog.html">Blog</a>
       </nav>
     </header>
 
     <div class="centerTitle">
       <p class="overline">Learning, reflection & growth</p>
-      <h1 class="headline">Blog</h1>
+      <h1 class="headline">Blogs</h1>
     </div>
 
     <section class="grid">
