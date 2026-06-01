@@ -304,13 +304,14 @@
     .section{
       padding:120px 0;
     }
-    .section{
+    .reveal{
       opacity:0;
       transform:translateY(40px);
-      transition:all .8s ease;
+      transition:opacity .8s ease,
+      transform .8s ease;
     }
 
-    .section.active{
+    .reveal.active{
       opacity:1;
       transform:translateY(0);
     }
@@ -811,7 +812,7 @@
 
 <!-- ABOUT -->
 
-<section id="about" class="section">
+<section id="about" class="section reveal">
 
   <div class="container">
 
@@ -885,7 +886,7 @@
 
 <!-- SKILLS -->
 
-<section id="skills" class="section sectionAlt">
+<section id="skills" class="section sectionAlt reveal">
 
   <div class="container">
 
@@ -1068,7 +1069,7 @@
 
 <!-- PROJECTS -->
 
-<section id="projects" class="section">
+<section id="projects" class="section reveal">
 
   <div class="container">
 
@@ -1215,7 +1216,7 @@
 
 <!-- CONTACT -->
 
-<section class="section sectionAlt">
+<section class="section sectionAlt reveal">
 
   <div class="container">
 

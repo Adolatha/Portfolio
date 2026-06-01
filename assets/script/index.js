@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const sections = document.querySelectorAll(".section");
+    const reveals = document.querySelectorAll(".reveal");
 
-    console.log("Sections found:", sections.length);
+    console.log("Reveal elements found:", reveals.length);
 
     const observer = new IntersectionObserver((entries) => {
 
@@ -18,23 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.15
     });
 
-    sections.forEach(section => {
-        observer.observe(section);
+    reveals.forEach(el => {
+        observer.observe(el);
     });
 
 });
-
-const reveals = document.querySelectorAll('.reveal');
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('active');
-        }
-    });
-});
-
-reveals.forEach(el => observer.observe(el));
 
 window.addEventListener('scroll',()=>{
 
