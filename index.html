@@ -104,6 +104,25 @@
               0 10px 30px rgba(0,0,0,.05);
     }
 
+    @media print {
+
+      header,
+      nav{
+        display:none !important;
+      }
+
+      .reveal{
+        opacity:1 !important;
+        transform:none !important;
+      }
+
+      *{
+        animation:none !important;
+        transition:none !important;
+      }
+
+    }
+
     .brand{
       display:flex;
       align-items:center;
