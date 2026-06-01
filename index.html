@@ -11,7 +11,8 @@
           content="Cybersecurity portfolio of Adolatha Uwimana featuring projects, security research, and development work."
   />
 
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <script src="assets/script/index.js"></script>
 
   <style>
 
@@ -203,19 +204,11 @@
 
       margin-bottom:20px;
     }
-
     .name{
-      font-size:
-              clamp(
-                      2rem,
-                      5vw,
-                      4rem
-              );
-
-      line-height:.92;
-      letter-spacing:-4px;
-
-      font-weight:700;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -1px;
     }
 
     .role{
@@ -310,6 +303,16 @@
 
     .section{
       padding:120px 0;
+    }
+    .section{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s ease;
+    }
+
+    .section.active{
+      opacity:1;
+      transform:translateY(0);
     }
 
     .sectionAlt{
@@ -762,10 +765,10 @@
 
 <!--      <p class="hello">Cybersecurity • Development • Research</p>-->
       <p class="hello">Hello I’m</p>
-      <h1 class="name">
+      <h2 class="name">
         Adolatha
         Uwimana
-      </h1>
+      </h2>
 
       <p class="role">
         Junior Cybersecurity Professional
@@ -784,7 +787,7 @@
         </a>
 
         <a class="btn ghost"
-           href="assets/Resume.pdf"
+           href="assets/images/Resume.pdf"
            download>
           Download Resume
         </a>
@@ -796,7 +799,7 @@
 
       <img
               class="heroImg"
-              src="assets/profile.png"
+              src="assets/images/profile.png"
               alt="Adolatha Uwimana portrait"
       />
 
@@ -1081,7 +1084,7 @@
         <div class="thumb">
           <img
                   class="thumbImg"
-                  src="assets/API-1.png"
+                  src="assets/images/API-1.png"
                   alt="Web Honeypot API"
           />
         </div>
@@ -1120,7 +1123,7 @@
         <div class="thumb">
           <img
                   class="thumbImg"
-                  src="assets/oop.png"
+                  src="assets/images/oop.png"
                   alt="Object-oriented application"
           />
         </div>
@@ -1158,7 +1161,7 @@
           <!--            Project image placeholder-->
           <!--            <small>Replace with your screenshot later (assets/projects/campus-connect.png)</small>-->
 
-          <img class="thumbImg" src="assets/mobilesecurity.png" alt="CampusConnect app screenshot" />
+          <img class="thumbImg" src="assets/images/mobilesecurity.png" alt="CampusConnect app screenshot" />
 
         </div>
 
@@ -1183,7 +1186,7 @@
           <!--            Project image placeholder-->
           <!--            <small>Replace with your screenshot later (assets/projects/portfolio.png)</small>-->
 
-          <img class="thumbImg" src="assets/portfolio.png" alt="Portfolio website screenshot" />
+          <img class="thumbImg" src="assets/images/portfolio.png" alt="Portfolio website screenshot" />
 
         </div>
 
@@ -1227,13 +1230,8 @@
       <div class="ctaRow"
            style="justify-content:center; margin-top:40px;">
 
-        <a class="btn primary"
-           href="mailto:yvonneadore@gmail.com">
-          Email Me
-        </a>
-
         <a class="btn ghost"
-           href="assets/Resume.pdf"
+           href="assets/images/Resume.pdf"
            download>
           Resume
         </a>
