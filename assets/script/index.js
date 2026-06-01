@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const reveals = document.querySelectorAll(".reveal");
 
-    console.log("Reveal elements found:", reveals.length);
-
     const observer = new IntersectionObserver((entries) => {
 
         entries.forEach(entry => {
@@ -18,9 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.15
     });
 
-    reveals.forEach(el => {
-        observer.observe(el);
-    });
+    reveals.forEach(el => observer.observe(el));
 
 });
 
